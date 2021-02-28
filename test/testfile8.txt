@@ -1,0 +1,11 @@
+Matematika IA.
+Fisika Dasar IA.
+Kimia Dasar B.
+Pengenalan Komputasi.
+Teori Bahasa Formal dan Otomata.
+Strategi Algoritma.
+Pengantar Analisis Rangkaian, Matematika IA.
+Matematika IIA, Matematika IA.
+Aljabar Linear dan Geometri, Matematika IA.
+Matematika Diskrit, Matematika IA, Matematika IIA.
+Inteligensi Buatan, Strategi Algoritma, Teori Bahasa Formal dan Otomata.
