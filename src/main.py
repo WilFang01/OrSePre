@@ -13,6 +13,7 @@ def count_line(file):
     line = file.read()
     line_split = line.split("\n")
 
+    # Dengan setiap new line, jumlah total_line akan bertambah
     for i in line_split :
         if i :
             total_line += 1
@@ -26,6 +27,7 @@ def register_matkul(file,jumlahmatkul):
     # n sebagai integer penentu index ke berapa
     n = 0
 
+    # Looping untuk setiap line yang terdapat dalam file txt
     for line in file :
         # Menghapus spasi pada kepala dan ekor baris
         line = line.strip()
@@ -54,6 +56,7 @@ def register_satu_semester(matkul,jumlahmatkul):
     for m in range (jumlahmatkul):
         for y in range (z):
             if (semester[y] in matkul[m]) :
+                # remove untuk menghapus
                 matkul[m].remove(semester[y])
 
     # Hapus nilai 0 yang terdapat dalam array semester
@@ -62,6 +65,7 @@ def register_satu_semester(matkul,jumlahmatkul):
         semester.remove(0)
         x+=1
 
+    # Filter untuk menghilangkan array yang kosong ([])
     matkul = list(filter(None,matkul))
 
     return semester,matkul
@@ -70,12 +74,15 @@ def int_to_roman(tahun):
     # Fungsi akan mengubah nilai integer ke dalam bentuk roman
     # Referensi : https://www.w3resource.com/python-exercises/class-exercises/python-class-exercise-1.php
     
+    # Inisialisasi angka romawi untuk 5 4 dan 1
     simbol_tahun = [5, 4, 1]
     simbol_roman = ["V", "IV", "I"]
 
+    # Inisialisasi
     tahun_roman = ''
     i = 0
 
+    # Selama tahun masih > 0, akan digenerate angka romawi V untuk 5, IV untuk 4, dan penambahan I untuk setiap lebih dari 5
     while (tahun > 0) :
         for _ in range (tahun // simbol_tahun[i]):
             tahun_roman += simbol_roman[i]
@@ -104,11 +111,11 @@ def int_to_roman(tahun):
 # Program Utama 
 # =============
 # Hitung jumlah line pada file
-with open("testfile2.txt","r") as file :
+with open("testfile3.txt","r") as file :
     jumlah_matkul = count_line(file)
 
 # Register matkul
-with open("testfile2.txt","r") as file :
+with open("testfile3.txt","r") as file :
     matkul = register_matkul(file,jumlah_matkul)
 
 # Menghapus spasi pada head dan tail setiap matkul
@@ -123,22 +130,33 @@ semester,matkul = register_satu_semester(matkul,len(matkul))
 sem = 1
 
 # Output
-# Selama matkul masih mempunyai isi, maka akan dilakukan loop mengisi semester dan menghapus mata kuliah dari array matkul hingga kosong (False)
+# Selama matkul masih mempunyai isi, maka akan dilakukan loop mengisi semester dan
+# menghapus mata kuliah dari array matkul hingga kosong (False)
 while (matkul) :
     # Semester hanya boleh <= 8 semester dari QnA
     if (sem < 9) :
+        # Output berupa (Semester <semester>  : <matakuliah dalam semester itu>)
         print("Semester",int_to_roman(sem),":",end=" ")
+        # Apabila bukan merupakan matkul terakhir dalam satu semester, akan ditambahkan koma
         for i in range (len(semester)):
             if (i < len(semester)-1) :
                 print(semester[i],end=", ")
             else :
                 print(semester[i],end="")
+        # Print New Line (Perapian)
         print()
         semester,matkul = register_satu_semester(matkul,len(matkul))
         sem+=1
+    # Apabila semester > 8
     else :
         print("Kapan mau tamatnya T.T")
 
+# Output semester terakhir diluar looping
 if (sem < 9):
-    print("Semester",int_to_roman(sem),":",semester[len(semester)-1],end="")
+    print("Semester",int_to_roman(sem),":",end=" ")
+    for i in range (len(semester)):
+        if (i < len(semester)-1) :
+            print(semester[i],end=", ")
+        else :
+            print(semester[i],end="")
     print(".")
