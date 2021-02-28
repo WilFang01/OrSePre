@@ -1,2 +1,2 @@
-# OrSePre
+# Tugas Kecil Stima 2
 OrSePre is a project to sort courses into semesters that have prerequisite.
