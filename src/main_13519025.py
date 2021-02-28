@@ -5,7 +5,7 @@
 # Penyusunan Rencana Kuliah dengan Topological Sort
 # Penerapan Decrease and Conquer
 
-from fungsi import *
+from fungsi_13519025 import *
 
 # Program Utama 
 # =============
