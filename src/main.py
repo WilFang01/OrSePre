@@ -111,11 +111,11 @@ def int_to_roman(tahun):
 # Program Utama 
 # =============
 # Hitung jumlah line pada file
-with open("testfile3.txt","r") as file :
+with open("testfile.txt","r") as file :
     jumlah_matkul = count_line(file)
 
 # Register matkul
-with open("testfile3.txt","r") as file :
+with open("testfile.txt","r") as file :
     matkul = register_matkul(file,jumlah_matkul)
 
 # Menghapus spasi pada head dan tail setiap matkul
